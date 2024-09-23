@@ -12,6 +12,7 @@ requests = "^2.32.3"
 requests-html = "^0.10.0"
 selenium = "^4.25.0"
 browsermob-proxy = "^0.8.0"
+chromedriver-binary = "^131.0.6733.0.0"
 
 
 [build-system]

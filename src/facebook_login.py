@@ -1,42 +1,30 @@
 import time
 
+import chromedriver_binary
 from selenium import webdriver
+from selenium.webdriver.chrome.options import Options
 from selenium.webdriver.common.by import By
+from selenium.webdriver.common.proxy import Proxy, ProxyType
+from selenium.webdriver.firefox.options import Options
 from selenium.webdriver.firefox.service import Service
 
 # Bright Data proxy credentials
 proxy_host = "brd.superproxy.io"
-proxy_port = 22225
+proxy_port = "22225"
 proxy_username = "brd-customer-hl_6779d688-zone-gf_test0"
 proxy_password = "fq3n6o413q4r"
-
-# Set up Selenium to use the proxy with Firefox
-firefox_options = webdriver.FirefoxOptions()
-
-# Set proxy settings for Firefox
 proxy_credentials = f"{proxy_username}:{proxy_password}@{proxy_host}:{proxy_port}"
-firefox_options.set_preference("network.proxy.type", 1)
-firefox_options.set_preference("network.proxy.http", proxy_host)
-firefox_options.set_preference("network.proxy.http_port", proxy_port)
-firefox_options.set_preference("network.proxy.ssl", proxy_host)
-firefox_options.set_preference("network.proxy.ssl_port", proxy_port)
-firefox_options.set_preference("network.proxy.socks_remote_dns", True)
 
-# Disable proxy authentication prompt
-firefox_options.set_preference("network.proxy.http", proxy_host)
-firefox_options.set_preference("network.proxy.http_port", proxy_port)
-firefox_options.set_preference("signon.autologin.proxy", True)
+chrome_options = webdriver.ChromeOptions()
+# chrome_options.add_argument("--headless")
+chrome_options.add_argument(f"--proxy-server=http://{proxy_credentials}")
 
-# Setup for the Firefox WebDriver
-webdriver_service = Service(
-    "/Users/aurelian/Documents/ddc-projects/fb-parser/src/geckodriver"
-)  # Adjust path to your geckodriver
-
-# Initialize WebDriver with options
-driver = webdriver.Firefox(service=webdriver_service, options=firefox_options)
+# webdriver_service = Service(
+#     "/Users/aurelian/Documents/ddc-projects/fb-parser/src/chromedriver"
+# )
+driver = webdriver.Chrome(options=chrome_options)
 
 
-# Go to the Facebook login page
 driver.get("https://www.facebook.com/login")
 time.sleep(5)
 

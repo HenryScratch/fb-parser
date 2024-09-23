@@ -269,6 +269,16 @@ files = [
 ]
 
 [[package]]
+name = "chromedriver-binary"
+version = "131.0.6733.0.0"
+description = "Installer for chromedriver."
+optional = false
+python-versions = "*"
+files = [
+    {file = "chromedriver_binary-131.0.6733.0.0.tar.gz", hash = "sha256:e5700343abf9dcf8c41355a8d64bc85e44ca275f5dc3592acdbc521644c12172"},
+]
+
+[[package]]
 name = "colorama"
 version = "0.4.6"
 description = "Cross-platform colored terminal text."
@@ -897,4 +907,4 @@ h11 = ">=0.9.0,<1"
 [metadata]
 lock-version = "2.0"
 python-versions = "^3.12"
-content-hash = "8556e29111ebdff8c202911d17cac9856b2b17f9026e215645278b0ad0833b99"
+content-hash = "7d8e6610ef0cf49b56d55013873fed32fab80e875523f19ca3fea107672e13c9"
