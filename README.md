@@ -10,7 +10,7 @@
 ```bash
 1. poetry shell
 2. poetry install
-3. python src/proxy_checker.py
+3. python app.py
 
 ```
 
