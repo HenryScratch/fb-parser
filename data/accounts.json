@@ -1,16 +1,16 @@
 {
     "accounts": [
     {
-        "phone": "+sdsd",
-        "email": "",
-        "password": "sdsd",
+        "phone": "+phone",
+        "email": "email",
+        "password": "pswd",
         "country": "USA"
     },
     
     {
-        "phone": "+1234567890",
-        "email": "fake@fake.fake",
-        "password": "fake_account_to_test_errors",
+        "phone": "+phone",
+        "email": "email",
+        "password": "pswd",
         "country": "Canada"
     }
 

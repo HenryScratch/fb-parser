@@ -1,10 +1,10 @@
 {
     "proxies": [
       {
-        "ip": "192.168.1.1",
-        "port": "8080",
-        "username": "user1",
-        "password": "pass1"
+        "host": "brd.superproxy.io",
+        "port": "22225",
+        "username": "brd-customer-hl_6779d688-zone-gf_test0",
+        "password": "fq3n6o413q4r"
       }
     ]
   }

@@ -4,7 +4,7 @@ import os
 from loguru import logger
 
 from src.database import init_db, save_working_pair
-from src.facebook_login import facebook_login
+from src.facebook_login import check_user
 
 # Инициализируем базу данных при старте скрипта
 init_db()
@@ -19,10 +19,21 @@ def check_proxy_account_pairs(accounts_file, proxies_file):
 
     for account in accounts:
         for proxy in proxies:
-            if facebook_login(account["email"], account["password"], proxy):
-                save_working_pair(account["email"], proxy["ip"])
+            if check_user(
+                email=account["email"],
+                phone=account["phone"],
+                password=account["password"],
+                proxy=proxy,
+            ):
+                save_working_pair(
+                    proxy_host=proxy["host"],
+                    account_email=account["email"],
+                    account_phone=account["phone"],
+                )
                 logger.info(
-                    f"Успешная связка: {account['email']} через прокси {proxy['ip']}"
+                    f"Успешная связка: {account['email']} {account['phone']} через прокси {proxy['host']}"
                 )
             else:
-                logger.info(f"Неудачная проверка: {account['email']} -> {proxy['ip']}")
+                logger.info(
+                    f"Неудачная проверка: {account['email']} {account['phone']} -> {proxy['host']}"
+                )
