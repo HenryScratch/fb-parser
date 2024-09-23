@@ -1,0 +1,16 @@
+{
+    "accounts": [
+    {
+        "phone": "+1234567890",
+        "email": "user1@example.com",
+        "password": "password123"
+    },
+    
+    {
+        "phone": "+1234567890",
+        "email": "fake@fake.fake",
+        "password": "fake_account_to_test_errors"
+    }
+
+    ]
+}
